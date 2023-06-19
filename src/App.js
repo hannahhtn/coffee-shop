@@ -1,25 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import Home from "./Home";
+import Menu from "./Menu";
+import Specials from "./Specials";
+import Cart from "./Cart";
+import Contact from "./Contact";
+import { useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	const [itemNums, setNums] = useState(0);
+	const [listItems, updateList] = useState(new Map());
+	return (
+		<Router>
+			<div className="App">
+				<header>
+					<ul className="nav-bar">
+						<Link to="/">Home</Link>
+						<Link to="./specials">Specials</Link>
+						<Link to="./menu">Menu</Link>
+						<Link to="./cart">Cart</Link>
+						<Link to="./contact">Contact</Link>
+					</ul>
+				</header>
+				<Routes>
+					<Route path="/" exact Component={Home}></Route>
+					<Route
+						path="/menu"
+						element={
+							<Menu
+								list={listItems}
+								updateList={updateList}
+								items={itemNums}
+								updateCart={setNums}
+							/>
+						}
+					></Route>
+					<Route
+						path="/specials"
+						element={
+							<Specials
+								list={listItems}
+								updateList={updateList}
+								items={itemNums}
+								updateCart={setNums}
+							/>
+						}
+					></Route>
+					<Route
+						path="/cart"
+						element={
+							<Cart
+								list={listItems}
+								updateList={updateList}
+								items={itemNums}
+								updateCart={setNums}
+							/>
+						}
+					></Route>
+					<Route path="/contact" Component={Contact}></Route>
+					<Route path="*" Component={Home}></Route>
+				</Routes>
+			</div>
+		</Router>
+	);
+};
 
 export default App;

@@ -16,16 +16,16 @@ const App = () => {
 				<header>
 					<ul className="nav-bar">
 						<Link to="/">Home</Link>
-						<Link to="./specials">Specials</Link>
-						<Link to="./menu">Menu</Link>
-						<Link to="./cart">Cart</Link>
-						<Link to="./contact">Contact</Link>
+						<Link to="/specials">Specials</Link>
+						<Link to="/menu">Menu</Link>
+						<Link to="/cart">Cart</Link>
+						<Link to="/contact">Contact</Link>
 					</ul>
 				</header>
 				<Routes>
-					<Route path="/" exact element={Home}></Route>
+					<Route path="/" exact element={<Home/>}></Route>
 					<Route
-						path="./menu"
+						path="/menu"
 						element={
 							<Menu
 								list={listItems}
@@ -36,7 +36,7 @@ const App = () => {
 						}
 					></Route>
 					<Route
-						path="./specials"
+						path="/specials"
 						element={
 							<Specials
 								list={listItems}
@@ -47,7 +47,7 @@ const App = () => {
 						}
 					></Route>
 					<Route
-						path="./cart"
+						path="/cart"
 						element={
 							<Cart
 								list={listItems}
@@ -57,8 +57,8 @@ const App = () => {
 							/>
 						}
 					></Route>
-					<Route path="./contact" element={Contact}></Route>
-					<Route path="*" element={Home}></Route>
+					<Route path="/contact" element={<Contact/>}></Route>
+					<Route path="*" element={<Home/>}></Route>
 				</Routes>
 			</div>
 		</Router>

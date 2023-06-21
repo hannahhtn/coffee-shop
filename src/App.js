@@ -23,9 +23,9 @@ const App = () => {
 					</ul>
 				</header>
 				<Routes>
-					<Route path="/" exact Component={Home}></Route>
+					<Route path="/" exact element={Home}></Route>
 					<Route
-						path="/menu"
+						path="./menu"
 						element={
 							<Menu
 								list={listItems}
@@ -36,7 +36,7 @@ const App = () => {
 						}
 					></Route>
 					<Route
-						path="/specials"
+						path="./specials"
 						element={
 							<Specials
 								list={listItems}
@@ -47,7 +47,7 @@ const App = () => {
 						}
 					></Route>
 					<Route
-						path="/cart"
+						path="./cart"
 						element={
 							<Cart
 								list={listItems}
@@ -57,8 +57,8 @@ const App = () => {
 							/>
 						}
 					></Route>
-					<Route path="/contact" Component={Contact}></Route>
-					<Route path="*" Component={Home}></Route>
+					<Route path="./contact" element={Contact}></Route>
+					<Route path="*" element={Home}></Route>
 				</Routes>
 			</div>
 		</Router>

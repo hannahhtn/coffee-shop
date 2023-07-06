@@ -20,7 +20,7 @@ body {
 	background-attachment: fixed;
 	background-position: center;
 	text-align: center;
-	font-family: var(--primary-font-family);
+	font-family: var(--secondary-font-family);
 	letter-spacing: 0.1rem;
 	position: relative;
 	min-height: 100vh;
@@ -40,7 +40,7 @@ ul {
 	justify-content: space-between;
 	align-items: center;
 	letter-spacing: 0;
-	font-weight: bolder;
+	/* font-weight: bolder; */
 }
 
 a,
